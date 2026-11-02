@@ -1,0 +1,9 @@
+node_modules/
+build/
+dist/
+www/
+src/mrzscanner.ts
+android/libs/
+ios/MRZScannerAR/
+ios/Frameworks/
+package-lock.json

@@ -1,0 +1,8 @@
+// window.MRZScanner, set by the Cordova plugin @mrzscanner/cordova (platforms/API.md).
+import type { MRZScannerApi } from './mrzscanner-api';
+
+export * from './mrzscanner-api';
+
+declare global {
+  const MRZScanner: MRZScannerApi;
+}

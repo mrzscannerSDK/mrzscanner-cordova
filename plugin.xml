@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The MRZ scanner for Cordova (platforms/cordova): the shared JavaScript API over the native SDKs.
+     The ios/MRZScannerAR source-file lines are written by build.sh from the SDK's files. -->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
+        id="@mrzscanner/cordova" version="2.7.4">
+    <name>MRZ Scanner</name>
+    <description>Reads passports, ID cards and visas with the camera (AR mode) or from photos, offline</description>
+    <license>Commercial, see README.md</license>
+    <engines>
+        <engine name="cordova-android" version=">=13.0.0" />
+        <engine name="cordova-ios" version=">=7.0.0" />
+    </engines>
+
+    <js-module src="www/mrzscanner.js" name="MRZScanner">
+        <clobbers target="MRZScanner" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MRZScanner">
+                <param name="android-package" value="com.mrzscanner.cordova.MRZScannerCordova" />
+            </feature>
+        </config-file>
+        <source-file src="android/MRZScannerCordova.java" target-dir="src/com/mrzscanner/cordova" />
+        <lib-file src="android/libs/mrzscanner-ar.aar" />
+        <framework src="android/mrzscanner.gradle" custom="true" type="gradleReference" />
+    </platform>
+
+    <platform name="ios">
+        <preference name="CAMERA_USAGE_DESCRIPTION" default="Scans the MRZ of passports and ID cards." />
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>$CAMERA_USAGE_DESCRIPTION</string>
+        </config-file>
+        <config-file target="config.xml" parent="/*">
+            <feature name="MRZScanner">
+                <param name="ios-package" value="MRZScannerCordova" />
+            </feature>
+            <preference name="SwiftVersion" value="5" />
+        </config-file>
+        <source-file src="ios/MRZScannerCordova.swift" />
+        <!-- MRZScannerAR -->
+        <source-file src="ios/MRZScannerAR/MRZAROverlayView.swift" />
+        <source-file src="ios/MRZScannerAR/MRZARScanner.swift" />
+        <source-file src="ios/MRZScannerAR/MRZCore.swift" />
+        <source-file src="ios/MRZScannerAR/MRZDebugUpload.swift" />
+        <source-file src="ios/MRZScannerAR/MRZImageScanner.swift" />
+        <source-file src="ios/MRZScannerAR/MRZRead.swift" />
+        <source-file src="ios/MRZScannerAR/MRZScan.swift" />
+        <source-file src="ios/MRZScannerAR/MRZScanScreen.swift" />
+        <source-file src="ios/MRZScannerAR/MRZScannerSettings.swift" />
+        <framework src="ios/Frameworks/MRZScannerCore.xcframework" custom="true" embed="true" />
+        <framework src="AVFoundation.framework" />
+        <framework src="SwiftUI.framework" />
+    </platform>
+</plugin>

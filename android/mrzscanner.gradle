@@ -1,0 +1,13 @@
+// The Cordova plugin's Gradle part (applied to the app): the MRZ scanner's Android SDK, copied by
+// plugin.xml into the app's libs/, and the libraries it uses (Android/MRZScannerAR/mrzscanner-ar).
+dependencies {
+    implementation files('libs/mrzscanner-ar.aar')
+    def camerax = '1.4.0'
+    implementation "androidx.camera:camera-core:$camerax"
+    implementation "androidx.camera:camera-camera2:$camerax"
+    implementation "androidx.camera:camera-lifecycle:$camerax"
+    implementation "androidx.camera:camera-view:$camerax"
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.activity:activity-ktx:1.9.3'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.0.21'
+}

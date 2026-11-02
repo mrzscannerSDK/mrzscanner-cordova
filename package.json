@@ -1,0 +1,22 @@
+{
+  "name": "@mrzscanner/cordova",
+  "version": "2.7.4",
+  "description": "MRZ scanner for Cordova: reads passports, ID cards and visas with the camera (AR mode) or from photos, offline",
+  "homepage": "https://mrzscanner.com/",
+  "author": "Barkoder",
+  "license": "SEE LICENSE IN README.md",
+  "keywords": ["cordova", "ecosystem:cordova", "cordova-android", "cordova-ios", "mrz", "passport", "id card", "ocr"],
+  "types": "www/mrzscanner.d.ts",
+  "cordova": {
+    "id": "@mrzscanner/cordova",
+    "platforms": ["android", "ios"]
+  },
+  "engines": {
+    "cordovaDependencies": { "2.7.4": { "cordova-android": ">=13.0.0", "cordova-ios": ">=7.0.0" } }
+  },
+  "files": ["plugin.xml", "www/", "android/", "ios/", "README.md"],
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "~5.9.0"
+  }
+}
